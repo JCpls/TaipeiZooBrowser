@@ -4,7 +4,7 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class BuildingsDetailResult(
+data class Building(
     val _id: Int,
     val _importdate: ImportDate,
     val e_no: String,

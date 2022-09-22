@@ -17,26 +17,26 @@ class MainViewModel(private val repository: Repository): ViewModel() {
         viewModelJob.cancel()
     }
 
-    init {
-        getData()
-    }
-
-    private fun getData() {
-        coroutineScope.launch {
-            getBuildings()
-        }
-    }
-
-    private suspend fun getBuildings(): BuildingsResult? {
-        return withContext(Dispatchers.IO) {
-            when (val result = repository.getBuildings()) {
-                is Result.Success -> {
-                    result.data
-                }
-                else -> {
-                    null
-                }
-            }
-        }
-    }
+//    init {
+//        getData()
+//    }
+//
+//    private fun getData() {
+//        coroutineScope.launch {
+//            getBuildings()
+//        }
+//    }
+//
+//    private suspend fun getBuildings(): BuildingsResult? {
+//        return withContext(Dispatchers.IO) {
+//            when (val result = repository.getBuildings()) {
+//                is Result.Success -> {
+//                    result.data
+//                }
+//                else -> {
+//                    null
+//                }
+//            }
+//        }
+//    }
 }

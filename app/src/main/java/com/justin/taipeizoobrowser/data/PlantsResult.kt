@@ -5,5 +5,5 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class PlantsResult(
-    val result: TopResult
+    val result: Buildings
 ) : Parcelable
