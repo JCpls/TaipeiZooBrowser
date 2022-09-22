@@ -3,6 +3,7 @@ package com.justin.taipeizoobrowser.home
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.justin.taipeizoobrowser.data.Building
 import com.justin.taipeizoobrowser.data.HomeItem
 import com.justin.taipeizoobrowser.data.Result
 import com.justin.taipeizoobrowser.data.source.Repository
@@ -14,6 +15,12 @@ class HomeViewModel(private val repository: Repository) : ViewModel() {
 
     val homeItems: LiveData<List<HomeItem>?>
         get() = _homeItems
+
+    private val _navigateToBuildingDetail = MutableLiveData<Building?>()
+
+    val navigateToBuildingDetail: LiveData<Building?>
+        get() = _navigateToBuildingDetail
+
 
     private var viewModelJob = Job()
     private val coroutineScope = CoroutineScope(viewModelJob + Dispatchers.Main)
@@ -45,5 +52,13 @@ class HomeViewModel(private val repository: Repository) : ViewModel() {
                 }
             }
         }
+    }
+
+    fun navigateToBuildingDetail(building: Building) {
+        _navigateToBuildingDetail.value = building
+    }
+
+    fun onBuildingDetailNavigated() {
+        _navigateToBuildingDetail.value = null
     }
 }
