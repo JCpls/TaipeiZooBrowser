@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="building"
+            type="com.justin.taipeizoobrowser.data.Building" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/image_home_building"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@string/image_home_building"
+            android:scaleType="centerCrop"
+            app:imageUrl="@{building.e_pic_url}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/text_home_building_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="40dp"
+            android:ellipsize="end"
+            android:gravity="start"
+            android:lines="1"
+            android:maxLines="1"
+            android:text="@{building.e_name}"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/image_home_building"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Building Name" />
+
+        <TextView
+            android:id="@+id/text_home_building_info"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="40dp"
+            android:ellipsize="end"
+            android:gravity="start"
+            android:lines="2"
+            android:maxLines="2"
+            android:text="@{building.e_info}"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/image_home_building"
+            app:layout_constraintTop_toBottomOf="@+id/text_home_building_name"
+            tools:text="兒童動物區的設計以「學習園地」為主軸，內有可愛動物、農村動物、農村生態等展示區，其中包含了農村常見的家禽如鴨、雞；家畜如羊駝、迷你馬等，這些動物都是早經人類馴服及利用，" />
+
+        <TextView
+            android:id="@+id/text_home_close_time"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="40dp"
+            android:ellipsize="end"
+            android:gravity="start"
+            android:lines="1"
+            android:maxLines="1"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/image_home_building"
+            app:layout_constraintTop_toBottomOf="@+id/text_home_building_info"
+            tools:text="每月第三個週一休假" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

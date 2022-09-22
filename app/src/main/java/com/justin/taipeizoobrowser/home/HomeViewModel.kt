@@ -30,22 +30,6 @@ class HomeViewModel(private val repository: Repository) : ViewModel() {
     private fun getBuildingsResult() {
         coroutineScope.launch(Dispatchers.IO) {
 
-//            val result = repository.getBuildings()
-//            _homeItems.value = when (result) {
-//                is Result.Success -> {
-//                    result.data
-//                }
-//                is Result.Fail -> {
-//                    null
-//                }
-//                is Result.Error -> {
-//                    null
-//                }
-//                else -> {
-//                    null
-//                }
-//            }
-
             when (val result = repository.getBuildings()) {
                 is Result.Success -> {
                     result.data.let { _homeItems.postValue(it) }
@@ -62,17 +46,4 @@ class HomeViewModel(private val repository: Repository) : ViewModel() {
             }
         }
     }
-
-//    private suspend fun getBuildings(): BuildingsResult? {
-//        return withContext(Dispatchers.IO) {
-//            when (val result = repository.getBuildings()) {
-//                is Result.Success -> {
-//                    result.data
-//                }
-//                else -> {
-//                    null
-//                }
-//            }
-//        }
-//    }
 }

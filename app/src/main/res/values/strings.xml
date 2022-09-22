@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">TaipeiZooBrowser</string>
+    <string name="image_home_building">The image of the building</string>
+
 </resources>

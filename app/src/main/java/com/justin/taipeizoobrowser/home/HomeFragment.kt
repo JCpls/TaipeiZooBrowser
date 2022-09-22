@@ -30,6 +30,12 @@ class HomeFragment : Fragment() {
             Log.i("Justin","HomeViewModel.homeItems = $it")
         }
 
+        binding.recyclerviewHomeBuilding.adapter = HomeAdapter(
+            HomeAdapter.OnClickListener {
+                Log.i("Justin", "HomeAdapter.OnClickListener = $it")
+            }
+        )
+
         return binding.root
     }
 
