@@ -34,7 +34,7 @@ fun bindImage(imgView: ImageView, imgUrl: String?) {
             .load(imgUri)
             .apply(
                 RequestOptions()
-                    .placeholder(R.drawable.ic_launcher_background)
+                    .placeholder(R.drawable.ic_taipei_city_hall)
                     .error(com.google.android.material.R.drawable.mtrl_ic_error)
             )
             .into(imgView)
