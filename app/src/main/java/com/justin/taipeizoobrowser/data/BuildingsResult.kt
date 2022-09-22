@@ -13,6 +13,13 @@ data class BuildingsResult(
         val items = mutableListOf<HomeItem>()
         result.let { buildings ->
             buildings.results.forEach { building ->
+
+                if (!building.e_pic_url.isNullOrEmpty()) {
+                    val urlBegin = building.e_pic_url.substring(0, 4)
+                    val urlEnd = building.e_pic_url.substring(4, building.e_pic_url.length)
+                    building.e_pic_url = urlBegin + "s" + urlEnd
+                }
+
                 items.add(HomeItem.BuildingItem(building))
             }
         }

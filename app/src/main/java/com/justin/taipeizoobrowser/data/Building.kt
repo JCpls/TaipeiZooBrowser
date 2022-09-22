@@ -10,7 +10,7 @@ data class Building(
     val e_no: String,
     val e_category: String,
     val e_name: String,
-    val e_pic_url: String,
+    var e_pic_url: String,
     val e_info: String,
     val e_memo: String,
     val e_geo: String,
