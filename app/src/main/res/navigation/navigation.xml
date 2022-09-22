@@ -9,16 +9,29 @@
         android:id="@+id/homeFragment"
         android:name="com.justin.taipeizoobrowser.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_buildingFragment"
+            app:destination="@id/buildingFragment" />
+    </fragment>
+
     <fragment
         android:id="@+id/buildingFragment"
         android:name="com.justin.taipeizoobrowser.building.BuildingFragment"
         android:label="fragment_building"
-        tools:layout="@layout/fragment_building" />
+        tools:layout="@layout/fragment_building" >
+        <argument
+            android:name="building"
+            app:argType="com.justin.taipeizoobrowser.data.Building"
+            app:nullable="false" />
+    </fragment>
+
     <fragment
         android:id="@+id/plantFragment"
         android:name="com.justin.taipeizoobrowser.plant.PlantFragment"
         android:label="fragment_plant"
         tools:layout="@layout/fragment_plant" />
+
+    <action android:id="@+id/navigate_to_building_fragment" app:destination="@id/buildingFragment"/>
 
 </navigation>

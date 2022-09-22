@@ -1,32 +1,31 @@
 package com.justin.taipeizoobrowser.building
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import com.justin.taipeizoobrowser.R
+import com.justin.taipeizoobrowser.databinding.FragmentBuildingBinding
+import com.justin.taipeizoobrowser.ext.getVmFactory
 
 class BuildingFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = BuildingFragment()
+    private val viewModel by viewModels<BuildingViewModel> {
+        getVmFactory(BuildingFragmentArgs.fromBundle(requireArguments()).building)
     }
-
-    private lateinit var viewModel: BuildingViewModel
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?,
     ): View? {
-        return inflater.inflate(R.layout.fragment_building, container, false)
-    }
+        val binding = FragmentBuildingBinding.inflate(inflater, container, false)
+        binding.lifecycleOwner = viewLifecycleOwner
+        binding.viewModel = viewModel
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(BuildingViewModel::class.java)
-        // TODO: Use the ViewModel
+        return binding.root
     }
 
 }
